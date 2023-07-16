@@ -8,9 +8,13 @@ async function main() {
   const baseURL = process.argv[2];
   console.log(baseURL);
   const pages = await crawlPage(baseURL, baseURL, {});
-  for (const page of Object.entries(pages)) {
-    console.log(pages);
-  }
+
+  // Report
+
+  const arr = Object.entries(pages);
+  arr.forEach((element) => {
+    console.log(`Found ${element[1]} hits to : ${element[0]}`);
+  });
 }
 
 main();
